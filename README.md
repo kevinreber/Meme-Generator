@@ -1,1 +1,1 @@
-### [Live Demo] (https://kevinreber.github.io/Meme-Generator/)
+[Live Demo] (https://kevinreber.github.io/Meme-Generator/)

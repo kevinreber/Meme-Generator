@@ -13,6 +13,8 @@
     <div class="container">
         <header>
             <h1>Meme Generator</h1>
+
+            <!-- User Form -->
             <form id="form" action="#">
                 <label for="url">Image Link:</label>
                 <input type="url" name="url" id="url" placeholder="SEARCH" pattern="https://.*" required>
@@ -21,11 +23,12 @@
                 <label for="bottom-text">Text On Bottom</label>
                 <input type="text" id="bottom-text" placeholder="OPTIONAL">
                 <button id="submit-meme" class="btn" type="submit">SUBMIT</button>
-            </form>
+            </form><!-- /User Form -->
+            
         </header>
 
         <main class="meme-container">
-            <div id="memes"></div>
+            <div id="memes"></div> <!-- List of Memes Generated -->
         </main>
     </div>
     <script src="app.js"></script>

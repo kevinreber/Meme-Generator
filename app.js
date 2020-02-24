@@ -1,9 +1,40 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const submitBtn = document.getElementById('submit-meme')
-    const memeList = document.getElementById('memes');
+let memes;
 
-    //Creates gif using user input
-    function createGif(src) {
+// When window loads, start new MemeGenerator
+window.addEventListener("load", () => {
+    memes = new MemeGenerator();
+});
+
+class MemeGenerator {
+    constructor() {
+
+        // DOM
+        this.submitBtn = document.getElementById('submit-meme');
+        this.memeList = document.getElementById('memes');
+
+        this.addEvents()
+    }
+
+    // Event delegates
+    addEvents() {
+        this.submitBtn.addEventListener('click', (e) => this.checkURL(e));
+        this.memeList.addEventListener('click', (e) => this.deleteMeme(e));
+    }
+
+    // Checks if users input URL is a valid url and image
+    checkURL(e) {
+        const url = document.getElementById('url').value; // User's url input
+        e.preventDefault();
+
+        if (url.match(/\.(jpeg|jpg|gif|png)$/) === null || url === '' || url.length === 0) { // If url is invalid, alert appears
+            alert("Invalid Image!");
+        } else {    // If url is valid, create gif
+                this.createGif(url);
+        }
+    }
+
+    // Creates gif using user input
+    createGif(src) {
         const topTxt = document.getElementById('top-text');
         const bottomTxt = document.getElementById('bottom-text');
 
@@ -15,32 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h1 class="meme-txt bottom-txt">${bottomTxt.value}</h1>
             </div>
             `
-        memeList.innerHTML += html;
+        this.memeList.innerHTML += html;
         document.getElementById('form').reset(); //Reset form
     }
 
-    //Checks if users input URL is a valid url and image
-    function checkURL(e) {
-        const url = document.getElementById('url').value;   //User's url input
-        e.preventDefault();
-
-        if (url.match(/\.(jpeg|jpg|gif|png)$/) === null || url === '' || url.length === 0) {    //If url is invalid, alert appears
-            alert("Invalid Image!");
-        } else {
-            createGif(url);
-        }
-    }
-
-    //Deletes meme user selects  
-    function deleteMeme(e) {
+    // Deletes meme user selects  
+    deleteMeme(e) {
         if (e.target.classList.contains('delete-meme')) {
             const meme = e.target.parentElement.parentElement;
-            memeList.removeChild(meme);
+            this.memeList.removeChild(meme);
         }
     }
+}
 
-    submitBtn.addEventListener('click', checkURL);
-    memeList.addEventListener('click', deleteMeme)
-})
-
-//Time total: 1.5hr
+//1st submit - 1.5hr
+//2nd submit - 1hr

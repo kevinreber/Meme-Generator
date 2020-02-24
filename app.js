@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
-    const url = document.getElementById('url');
-    const topTxt = document.getElementById('top-text');
-    const bottomTxt = document.getElementById('bottom-text');
     const submitBtn = document.getElementById('submit-meme')
-
     const memeList = document.getElementById('memes');
 
+    //Creates gif using user input
     function createGif(src) {
+        const topTxt = document.getElementById('top-text');
+        const bottomTxt = document.getElementById('bottom-text');
+
         const html = `
             <div class="meme">
                 <div class="meme-overlay"><span class="delete-meme">x</span></div>
@@ -17,21 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             `
         memeList.innerHTML += html;
-        form.reset();
+        document.getElementById('form').reset(); //Reset form
     }
 
+    //Checks if users input URL is a valid url and image
     function checkURL(e) {
+        const url = document.getElementById('url').value;   //User's url input
         e.preventDefault();
-        const gifLink = url.value;
 
-        // if (gifLink.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-        createGif(gifLink);
-        // } else {
-        // alert("Invalid Link!");
-        // form.reset();
-        // }
+        if (url.match(/\.(jpeg|jpg|gif|png)$/) === null || url === '' || url.length === 0) {    //If url is invalid, alert appears
+            alert("Invalid Image!");
+        } else {
+            createGif(url);
+        }
     }
 
+    //Deletes meme user selects  
     function deleteMeme(e) {
         if (e.target.classList.contains('delete-meme')) {
             const meme = e.target.parentElement.parentElement;

@@ -45,7 +45,7 @@ class MemeGenerator {
                 <img class="meme-img" src="${src}" alt="meme" align="middle">
                 <h1 class="meme-txt bottom-txt">${bottomTxt.value}</h1>
             </div>
-            `
+            `;
         this.memeList.innerHTML += html;
         document.getElementById('form').reset(); //Reset form
     }
@@ -60,4 +60,4 @@ class MemeGenerator {
 }
 
 //1st submit - 1.5hr
-//2nd submit - 1hr
+//2nd submit - 2hr

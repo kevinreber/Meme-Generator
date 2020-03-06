@@ -52,7 +52,7 @@ describe("Meme Generator Tests", function () {
         expect(memeList.childElementCount).toEqual(2);
     });
 
-    it('should not have text in top and bottom text', function () {
+    it('should add a meme with no text to the meme list', function () {
         topTxt.value = '';
         bottomTxt.value = '';
 

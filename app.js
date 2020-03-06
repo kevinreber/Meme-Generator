@@ -22,14 +22,14 @@ class MemeGenerator {
     }
 
     // Checks if users input URL is a valid url and image
-    checkURL(e) {
+    checkURL() {
         const url = document.getElementById('url').value; // User's url input
-        e.preventDefault();
+        // e.preventDefault();
 
         if (url.match(/\.(jpeg|jpg|gif|png)$/) === null || url === '' || url.length === 0) { // If url is invalid, alert appears
             alert("Invalid Image!");
-        } else {    // If url is valid, create gif
-                this.createGif(url);
+        } else { // If url is valid, create gif
+            this.createGif(url);
         }
     }
 

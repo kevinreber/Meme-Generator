@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator</title>
+    <!-- Jasmine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/jasmine-core/lib/jasmine-core/jasmine.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -24,14 +26,21 @@
                 <input type="text" id="bottom-text" placeholder="OPTIONAL">
                 <button id="submit-meme" class="btn" type="submit">SUBMIT</button>
             </form><!-- /User Form -->
-            
+
         </header>
 
         <main class="meme-container">
             <div id="memes"></div> <!-- List of Memes Generated -->
         </main>
     </div>
+    <!-- Jasmine Tests -->
+    <script src="https://unpkg.com/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script src="https://unpkg.com/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="https://unpkg.com/jasmine-core/lib/jasmine-core/boot.js"></script>
+    <script src="app.test.js"></script>
+    <!--/ Jasmine Tests -->
     <script src="app.js"></script>
+
 </body>
 
 </html>
